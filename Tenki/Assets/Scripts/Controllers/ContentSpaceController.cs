@@ -4,21 +4,16 @@ using Views;
 
 namespace Controllers
 {
-    public class SpacePreviewController : ISpacePreviewController
+    public class ContentSpaceController : IContentSpaceController
     {
-        private SpacePreviewView _view;
-        private Space _space;
-        private UIEvent _onSpaceSelected;
-        
-        public void Setup(SpacePreviewView view, UIEvent onSpaceSelected)
+        private ContentSpaceView _view;
+        public void Setup(ContentSpaceView view)
         {
             _view = view;
-            _onSpaceSelected = onSpaceSelected;
         }
 
         public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab)
         {
-            _space = space;
             foreach (var artPiece in space.ArtPieces)
             {
                 PiecePreviewView previewView = GameObject.Instantiate(piecePreviewPrefab, transform);
@@ -32,11 +27,6 @@ namespace Controllers
                     previewView.Setup(artPiece.Art);
                 }
             }
-        }
-
-        public void OnSpaceButton()
-        {
-            _onSpaceSelected.Invoke(_space);
         }
     }
 }

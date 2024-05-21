@@ -1,28 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using Controllers;
 using Interfaces;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class SpacePreviewView : MonoBehaviour
+namespace Views
 {
-    [SerializeField] private TextMeshProUGUI _title = default;
-    [SerializeField] private Transform _pieceContainer = default;
-    [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
-    
-    private ISpacePreviewController _controller;
-    
-    private void Awake()
+    public class SpacePreviewView : MonoBehaviour
     {
-        _controller = new SpacePreviewController();
-        _controller.Setup(this);
-    }
+        [SerializeField] private Button _spaceButton = default;
+        [SerializeField] private TextMeshProUGUI _title = default;
+        [SerializeField] private Transform _pieceContainer = default;
+        [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
+        [SerializeField] private UIEvent _onSpaceSelected = default;
     
-    public void Setup(Space space)
-    {
-        _title.SetText(space.Name);
+        private ISpacePreviewController _controller;
+    
+        private void Awake()
+        {
+            _controller = new SpacePreviewController();
+            _controller.Setup(this, _onSpaceSelected);
+            _spaceButton.onClick.AddListener(OnSpaceButton);
+        }
 
-        _controller.CreateLayout(_pieceContainer, space, _piecePreviewPrefab);
+        public void Setup(Space space)
+        {
+            _title.SetText(space.Name);
+
+            _controller.CreateLayout(_pieceContainer, space, _piecePreviewPrefab);
+        }
+        
+        private void OnSpaceButton()
+        {
+            _controller.OnSpaceButton();
+        }
     }
 }
