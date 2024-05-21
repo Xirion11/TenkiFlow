@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5113744136761729393}
   - component: {fileID: 702107541479558864}
   m_Layer: 5
-  m_Name: Space
+  m_Name: Space Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
