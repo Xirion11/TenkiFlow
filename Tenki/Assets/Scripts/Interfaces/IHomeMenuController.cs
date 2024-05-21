@@ -3,9 +3,9 @@ using Views;
 
 namespace Interfaces
 {
-    public abstract class IHomeMenuController
+    public interface IHomeMenuController
     {
-        public abstract void Setup(HomeMenuView view);
-        public abstract void CreateLayout(Transform transform, Space[] spaces, SpacePreviewView spacePreviewPrefab);
+        public void Setup(HomeMenuView view);
+        public void CreateLayout(Transform transform, Space[] spaces, SpacePreviewView spacePreviewPrefab);
     }
 }

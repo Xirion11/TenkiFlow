@@ -8,12 +8,12 @@ namespace Controllers
     {
         private HomeMenuView _view;
         
-        public override void Setup(HomeMenuView view)
+        public void Setup(HomeMenuView view)
         {
             _view = view;
         }
 
-        public override void CreateLayout(Transform transform, Space[] spaces, SpacePreviewView spacePreviewViewPrefab)
+        public void CreateLayout(Transform transform, Space[] spaces, SpacePreviewView spacePreviewViewPrefab)
         {
             foreach (var space in spaces)
             {

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Controllers;
+using Interfaces;
 using UnityEngine;
 using TMPro;
 
@@ -8,22 +10,19 @@ public class SpacePreviewView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _title = default;
     [SerializeField] private Transform _pieceContainer = default;
     [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
+    
+    private ISpacePreviewController _controller;
+    
+    private void Awake()
+    {
+        _controller = new SpacePreviewController();
+        _controller.Setup(this);
+    }
+    
     public void Setup(Space space)
     {
         _title.SetText(space.Name);
 
-        foreach (var artPiece in space.ArtPieces)
-        {
-            PiecePreviewView previewView = Instantiate(_piecePreviewPrefab, _pieceContainer);
-
-            if (artPiece.Art == null)
-            {
-                previewView.Setup(artPiece.Color);
-            }
-            else
-            {
-                previewView.Setup(artPiece.Art);
-            }
-        }
+        _controller.CreateLayout(_pieceContainer, space, _piecePreviewPrefab);
     }
 }
