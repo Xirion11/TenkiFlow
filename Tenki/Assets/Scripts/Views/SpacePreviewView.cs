@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SpaceView : MonoBehaviour
+public class SpacePreviewView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _title = default;
     [SerializeField] private Transform _pieceContainer = default;

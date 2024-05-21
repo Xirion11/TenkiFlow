@@ -13,11 +13,11 @@ namespace Controllers
             _view = view;
         }
 
-        public override void CreateLayout(Transform transform, Space[] spaces, SpaceView spaceViewPrefab)
+        public override void CreateLayout(Transform transform, Space[] spaces, SpacePreviewView spacePreviewViewPrefab)
         {
             foreach (var space in spaces)
             {
-                var spacePrefab = GameObject.Instantiate(spaceViewPrefab, transform);
+                var spacePrefab = GameObject.Instantiate(spacePreviewViewPrefab, transform);
                 spacePrefab.gameObject.name = space.Name;
                 spacePrefab.Setup(space);
             }

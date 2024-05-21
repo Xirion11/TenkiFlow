@@ -1,12 +1,13 @@
 using Controllers;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Views
 {
     public class HomeMenuView : MonoBehaviour
     {
-        [SerializeField] private SpaceView _spacePrefab = default;
+        [SerializeField] private SpacePreviewView spacePreviewPrefab = default;
         [SerializeField] private Space[] _spaces = default;
 
         private Transform _transform;
@@ -21,7 +22,7 @@ namespace Views
 
         private void Start()
         {
-            _controller.CreateLayout(_transform, _spaces, _spacePrefab);
+            _controller.CreateLayout(_transform, _spaces, spacePreviewPrefab);
         }
     }
 }
