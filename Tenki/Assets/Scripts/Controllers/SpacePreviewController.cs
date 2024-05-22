@@ -7,13 +7,11 @@ namespace Controllers
 {
     public class SpacePreviewController : ISpacePreviewController
     {
-        private SpacePreviewView _view;
         private Space _space;
         private UIEvent _onSpaceSelected;
         
-        public void Setup(SpacePreviewView view, UIEvent onSpaceSelected)
+        public void Setup(UIEvent onSpaceSelected)
         {
-            _view = view;
             _onSpaceSelected = onSpaceSelected;
         }
 

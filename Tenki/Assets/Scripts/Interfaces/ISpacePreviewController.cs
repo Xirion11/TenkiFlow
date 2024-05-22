@@ -6,7 +6,7 @@ namespace Interfaces
 {
     public interface ISpacePreviewController
     {
-        public void Setup(SpacePreviewView view, UIEvent onSpaceSelected);
+        public void Setup(UIEvent onSpaceSelected);
         public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab);
         public void OnSpaceButton();
     }

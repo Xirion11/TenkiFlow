@@ -1,4 +1,3 @@
-using System;
 using Controllers;
 using Interfaces;
 using Systems;
@@ -14,7 +13,6 @@ namespace Views
         [SerializeField] private Button _btnBack = default;
         [SerializeField] private TextMeshProUGUI _txtTitle = default;
         [SerializeField] private Transform _piecesContent = default;
-        [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
         [SerializeField] private Button _btnShuffle = default;
         [SerializeField] private UIEvent _onBackToHome = default;
 
@@ -25,7 +23,7 @@ namespace Views
         private void Awake()
         {
             _controller = new ContentSpaceController();
-            _controller.Setup(this, _previewPool);
+            _controller.Setup(_previewPool);
             
             _btnBack.onClick.AddListener(OnBackButton);
             _btnShuffle.onClick.AddListener(OnShuffleButton);
@@ -50,7 +48,7 @@ namespace Views
         {
             _txtTitle.SetText(space.Name);
             _controller.ClearLayout();
-            _controller.CreateLayout(_piecesContent, space, _piecePreviewPrefab);
+            _controller.CreateLayout(_piecesContent, space);
         }
     }
 }

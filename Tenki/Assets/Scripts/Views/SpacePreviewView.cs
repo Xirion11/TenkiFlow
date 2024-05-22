@@ -20,7 +20,7 @@ namespace Views
         private void Awake()
         {
             _controller = new SpacePreviewController();
-            _controller.Setup(this, _onSpaceSelected);
+            _controller.Setup(_onSpaceSelected);
             _spaceButton.onClick.AddListener(OnSpaceButton);
         }
 

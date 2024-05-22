@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Interfaces;
 using Systems;
@@ -9,15 +8,13 @@ namespace Controllers
 {
     public class ContentSpaceController : IContentSpaceController
     {
-        private ContentSpaceView _view;
         private PiecePreviewPool _pool;
         private List<PiecePreviewView> _pooledPiecePreviews;
 
         private List<int> _indices;
         
-        public void Setup(ContentSpaceView view, PiecePreviewPool pool)
+        public void Setup(PiecePreviewPool pool)
         {
-            _view = view;
             _pool = pool;
             
             if (_pooledPiecePreviews == null)
@@ -41,11 +38,11 @@ namespace Controllers
             _indices.Clear();
         }
 
-        public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab)
+        public void CreateLayout(Transform transform, Space space)
         {
             foreach (var artPiece in space.ArtPieces)
             {
-                PiecePreviewView previewView = _pool.Get(transform);//GameObject.Instantiate(piecePreviewPrefab, transform);
+                PiecePreviewView previewView = _pool.Get(transform);
                 _pooledPiecePreviews.Add(previewView);
                 previewView.SetAsLastSibling();
 
