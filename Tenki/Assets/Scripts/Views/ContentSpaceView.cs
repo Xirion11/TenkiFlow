@@ -33,7 +33,7 @@ namespace Views
         
         private void OnShuffleButton()
         {
-            throw new NotImplementedException();
+            _controller.Shuffle();
         }
 
         private void OnBackButton()

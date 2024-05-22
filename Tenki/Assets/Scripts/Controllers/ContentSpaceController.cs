@@ -12,12 +12,23 @@ namespace Controllers
         private ContentSpaceView _view;
         private PiecePreviewPool _pool;
         private List<PiecePreviewView> _pooledPiecePreviews;
+
+        private List<int> _indices;
         
         public void Setup(ContentSpaceView view, PiecePreviewPool pool)
         {
             _view = view;
             _pool = pool;
-            _pooledPiecePreviews = new List<PiecePreviewView>();
+            
+            if (_pooledPiecePreviews == null)
+            {
+                _pooledPiecePreviews = new List<PiecePreviewView>();
+            }
+
+            if (_indices == null)
+            {
+                _indices = new List<int>();
+            }
         }
 
         public void ClearLayout()
@@ -26,6 +37,8 @@ namespace Controllers
             {
                 _pool.ReturnToPool(pooledPiecePreview);
             }
+            _pooledPiecePreviews.Clear();
+            _indices.Clear();
         }
 
         public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab)
@@ -34,6 +47,7 @@ namespace Controllers
             {
                 PiecePreviewView previewView = _pool.Get(transform);//GameObject.Instantiate(piecePreviewPrefab, transform);
                 _pooledPiecePreviews.Add(previewView);
+                previewView.SetAsLastSibling();
 
                 if (artPiece.Art == null)
                 {
@@ -43,6 +57,17 @@ namespace Controllers
                 {
                     previewView.Setup(artPiece.Art);
                 }
+                
+                _indices.Add(_indices.Count);
+            }
+        }
+
+        public void Shuffle()
+        {
+            _indices.Shuffle();
+            for (int i = 0; i < _pooledPiecePreviews.Count; i++)
+            {
+                _pooledPiecePreviews[i].SetSiblingIndex(_indices[i]);
             }
         }
     }

@@ -11,8 +11,6 @@ namespace Systems
         public T Prefab { get => _prefab; set => _prefab = value; }
 
         [SerializeField] private Queue<T> _objects = new Queue<T>();
-        
-        
 
         private void Awake()
         {
