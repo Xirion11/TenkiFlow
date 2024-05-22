@@ -207,8 +207,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 53188443}
-  - component: {fileID: 53188442}
   - component: {fileID: 53188444}
+  - component: {fileID: 53188445}
+  - component: {fileID: 53188442}
   m_Layer: 0
   m_Name: UI Handler
   m_TagString: Untagged
@@ -256,9 +257,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e730f354f4b65746a3079533866031d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiEventListener: {fileID: 53188442}
+  _onSpaceClickedListener: {fileID: 53188442}
+  _onBackToHomeListener: {fileID: 53188445}
   _homeMenu: {fileID: 1690302803}
   _contentSpace: {fileID: 351015985}
+--- !u!114 &53188445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53188441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6be342c739d101546b5bba044ea1c03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiEvent: {fileID: 11400000, guid: 583687fc4d682f346bd85af9075005e8, type: 2}
 --- !u!1 &81365046
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46.170044}
+  m_AnchoredPosition: {x: 0, y: -46.16992}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &227325170
@@ -620,6 +635,7 @@ MonoBehaviour:
   _piecesContent: {fileID: 263903987}
   _piecePreviewPrefab: {fileID: 1158459511735786822, guid: 7c29cf4e3fe43f24996df5212edc9820, type: 3}
   _btnShuffle: {fileID: 81365048}
+  _onBackToHome: {fileID: 11400000, guid: 583687fc4d682f346bd85af9075005e8, type: 2}
 --- !u!1 &398845796
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &398845797
 RectTransform:
   m_ObjectHideFlags: 0

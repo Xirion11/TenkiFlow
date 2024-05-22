@@ -12,6 +12,11 @@ namespace Controllers
             _view = view;
         }
 
+        public void ClearLayout()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab)
         {
             foreach (var artPiece in space.ArtPieces)

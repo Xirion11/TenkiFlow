@@ -15,6 +15,7 @@ namespace Views
         [SerializeField] private Transform _piecesContent = default;
         [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
         [SerializeField] private Button _btnShuffle = default;
+        [SerializeField] private UIEvent _onBackToHome = default;
 
         private IContentSpaceController _controller;
 
@@ -34,7 +35,7 @@ namespace Views
 
         private void OnBackButton()
         {
-            throw new NotImplementedException();
+            _onBackToHome.Invoke(null);
         }
 
         public void SetVisibility(bool visible)
@@ -45,6 +46,7 @@ namespace Views
         public void Setup(Space space)
         {
             _txtTitle.SetText(space.Name);
+            _controller.ClearLayout();
             _controller.CreateLayout(_piecesContent, space, _piecePreviewPrefab);
         }
     }
