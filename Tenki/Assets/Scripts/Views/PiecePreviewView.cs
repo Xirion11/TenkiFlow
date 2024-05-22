@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Controllers;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +10,9 @@ public class PiecePreviewView : MonoBehaviour
 {
     [SerializeField] private Image _image = default;
     [SerializeField] private Sprite _defaultSprite = default;
-    
-    Transform _transform;
+    [SerializeField] private Button _btnOpenPopup = default;
+    private Transform _transform;
+    private IPiecePreviewController _controller;
     
     private Transform Transform 
     {
@@ -22,22 +26,44 @@ public class PiecePreviewView : MonoBehaviour
             return _transform;
         }
     }
-    
-    private void Awake()
+
+    private IPiecePreviewController Controller
     {
-        _transform = this.transform;
-    }
-    
-    public void Setup(Sprite sprite)
-    {
-        _image.sprite = sprite;
-        _image.color = Color.white;
+        get
+        {
+            if(_controller == null)
+            {
+                _controller = new PiecePreviewController();
+            }
+
+            return _controller;
+        }
     }
 
-    public void Setup(Color color)
+    private void OnEnable()
     {
+        _btnOpenPopup.onClick.AddListener(Controller.OpenPopup);
+    }
+
+    private void OnDisable()
+    {
+        _btnOpenPopup.onClick.RemoveListener(Controller.OpenPopup);
+    }
+
+    public void SetupWithSprite(ArtPiece data, bool enableButton)
+    {
+        Controller.SetData(data);
+        _image.sprite = data.Art;
+        _image.color = Color.white;
+        _btnOpenPopup.enabled = enableButton;
+    }
+
+    public void SetupWithColor(ArtPiece data, bool enableButton)
+    {
+        Controller.SetData(data);
         _image.sprite = _defaultSprite;
-        _image.color = color;
+        _image.color = data.Color;
+        _btnOpenPopup.enabled = enableButton;
     }
 
     public void SetSiblingIndex(int index)

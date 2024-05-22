@@ -26,11 +26,11 @@ namespace Controllers
 
                 if (artPiece.Art == null)
                 {
-                    previewView.Setup(artPiece.Color);
+                    previewView.SetupWithColor(artPiece, false);
                 }
                 else
                 {
-                    previewView.Setup(artPiece.Art);
+                    previewView.SetupWithSprite(artPiece, false);
                 }
             }
         }

@@ -51,11 +51,11 @@ namespace Controllers
 
                 if (artPiece.Art == null)
                 {
-                    previewView.Setup(artPiece.Color);
+                    previewView.SetupWithColor(artPiece, true);
                 }
                 else
                 {
-                    previewView.Setup(artPiece.Art);
+                    previewView.SetupWithSprite(artPiece, true);
                 }
                 
                 _indices.Add(_indices.Count);
