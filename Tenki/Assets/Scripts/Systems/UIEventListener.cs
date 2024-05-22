@@ -1,21 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Systems
 {
     public class UIEventListener : MonoBehaviour
     {
-        [SerializeField] private UIEvent uiEvent = default;
+        [SerializeField] private UIEvent _uiEvent = default;
         private Action<Space> _callback = default;
 
         private void Awake()
         {
-            uiEvent.Register(this);
+            _uiEvent.Register(this);
         }
 
         private void OnDestroy()
         {
-            uiEvent.Deregister(this);
+            _uiEvent.Deregister(this);
         }
 
         public void RaiseEvent(Space data)

@@ -7,16 +7,17 @@ namespace Controllers
     public class PiecePreviewController : IPiecePreviewController
     {
         private ArtPiece _data; 
-        private UIEvent _onShowPopup;
+        private PopupEvent _onShowPopup;
         
-        public void SetData(ArtPiece data)
+        public void Setup(PopupEvent evt, ArtPiece data)
         {
             _data = data;
+            _onShowPopup = evt;
         }
 
         public void OpenPopup()
         {
-            //_onShowPopup.Invoke(_data);
+            _onShowPopup.Invoke(_data);
         }
     }
 }

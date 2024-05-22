@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 namespace Systems
 {
     [CreateAssetMenu(menuName = "UI Event", fileName = "New UI Event")]
-    public class UIEvent : ScriptableObject
+    public class UIEvent : IEvent
     {
         private HashSet<UIEventListener> _listeners = new HashSet<UIEventListener>();
     

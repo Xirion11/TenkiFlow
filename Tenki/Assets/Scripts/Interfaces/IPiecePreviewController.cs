@@ -1,8 +1,10 @@
+using Systems;
+
 namespace Interfaces
 {
     public interface IPiecePreviewController
     {
-        public void SetData(ArtPiece data);
+        public void Setup(PopupEvent evt, ArtPiece data);
         public void OpenPopup();
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Controllers;
 using Interfaces;
+using Systems;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class PiecePreviewView : MonoBehaviour
     [SerializeField] private Image _image = default;
     [SerializeField] private Sprite _defaultSprite = default;
     [SerializeField] private Button _btnOpenPopup = default;
+    [SerializeField] private PopupEvent _onOpenPopup = default;
+    
     private Transform _transform;
     private IPiecePreviewController _controller;
     
@@ -52,7 +55,7 @@ public class PiecePreviewView : MonoBehaviour
 
     public void SetupWithSprite(ArtPiece data, bool enableButton)
     {
-        Controller.SetData(data);
+        Controller.Setup(_onOpenPopup, data);
         _image.sprite = data.Art;
         _image.color = Color.white;
         _btnOpenPopup.enabled = enableButton;
@@ -60,7 +63,7 @@ public class PiecePreviewView : MonoBehaviour
 
     public void SetupWithColor(ArtPiece data, bool enableButton)
     {
-        Controller.SetData(data);
+        Controller.Setup(_onOpenPopup, data);
         _image.sprite = _defaultSprite;
         _image.color = data.Color;
         _btnOpenPopup.enabled = enableButton;

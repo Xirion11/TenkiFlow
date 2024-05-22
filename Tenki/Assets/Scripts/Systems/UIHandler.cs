@@ -10,6 +10,7 @@ public class UIHandler : MonoBehaviour
 {
     [SerializeField] private UIEventListener _onSpaceClickedListener = default;
     [SerializeField] private UIEventListener _onBackToHomeListener = default;
+    [SerializeField] private PopupEventListener _onShowPopupListener = default;
     [SerializeField] private HomeMenuView _homeMenu = default;
     [SerializeField] private ContentSpaceView _contentSpace = default;
 
@@ -17,6 +18,7 @@ public class UIHandler : MonoBehaviour
     {
         _onSpaceClickedListener.SetEvent(ShowUI);
         _onBackToHomeListener.SetEvent(BackToHome);
+        _onShowPopupListener.SetEvent(ShowPopup);
     }
 
     private void BackToHome(Space data)
@@ -30,5 +32,10 @@ public class UIHandler : MonoBehaviour
         _homeMenu.gameObject.SetActive(false);
         _contentSpace.Setup(data);
         _contentSpace.SetVisibility(true);
+    }
+    
+    private void ShowPopup(ArtPiece data)
+    {
+        Debug.Log($"Open popup {data.Description}");
     }
 }
