@@ -13,6 +13,8 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private PopupEventListener _onShowPopupListener = default;
     [SerializeField] private HomeMenuView _homeMenu = default;
     [SerializeField] private ContentSpaceView _contentSpace = default;
+    [SerializeField] private Transform _popupContainer = default;
+    [SerializeField] private PopupPool _pool = default;
 
     private void Awake()
     {
@@ -36,6 +38,7 @@ public class UIHandler : MonoBehaviour
     
     private void ShowPopup(ArtPiece data)
     {
-        Debug.Log($"Open popup {data.Description}");
+        var popup = _pool.Get(_popupContainer);
+        popup.Setup(data, _pool);
     }
 }

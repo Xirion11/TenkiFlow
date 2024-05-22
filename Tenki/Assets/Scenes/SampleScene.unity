@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 53188445}
   - component: {fileID: 53188442}
   - component: {fileID: 53188446}
+  - component: {fileID: 53188447}
   m_Layer: 0
   m_Name: UI Handler
   m_TagString: Untagged
@@ -263,6 +264,8 @@ MonoBehaviour:
   _onShowPopupListener: {fileID: 53188446}
   _homeMenu: {fileID: 1690302803}
   _contentSpace: {fileID: 351015985}
+  _popupContainer: {fileID: 2050675339}
+  _pool: {fileID: 53188447}
 --- !u!114 &53188445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +292,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _popupEvent: {fileID: 11400000, guid: e5ae02bcf96982c41b145fb4f41fcfcb, type: 2}
+--- !u!114 &53188447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53188441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8274b58676b714c8f613a658b29ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 8489374601235539581, guid: 29dcfc3b853152d4a80ef9325413cc28, type: 3}
 --- !u!1 &81365046
 GameObject:
   m_ObjectHideFlags: 0
