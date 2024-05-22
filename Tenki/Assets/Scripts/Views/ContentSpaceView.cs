@@ -1,6 +1,7 @@
 using System;
 using Controllers;
 using Interfaces;
+using Systems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,10 +20,12 @@ namespace Views
 
         private IContentSpaceController _controller;
 
+        [SerializeField] private PiecePreviewPool _previewPool;
+
         private void Awake()
         {
             _controller = new ContentSpaceController();
-            _controller.Setup(this);
+            _controller.Setup(this, _previewPool);
             
             _btnBack.onClick.AddListener(OnBackButton);
             _btnShuffle.onClick.AddListener(OnShuffleButton);

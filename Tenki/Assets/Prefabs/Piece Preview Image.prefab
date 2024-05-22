@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1338822793060690206}
   - component: {fileID: 1158459511735786822}
   m_Layer: 5
-  m_Name: Space Preview Image
+  m_Name: Piece Preview Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
