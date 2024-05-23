@@ -14,6 +14,7 @@ namespace Views
         [SerializeField] private Sprite _defaultSprite = default;
         [SerializeField] private Button _btnOpenPopup = default;
         [SerializeField] private PopupEvent _onOpenPopup = default;
+        [SerializeField] private RectTransform _rectTransform = default;
     
         private Transform _transform;
         private IPiecePreviewController _controller;
@@ -61,7 +62,7 @@ namespace Views
 
         public void SetupWithSprite(RectTransform parent, ArtPiece data, bool enableButton, UnityAction callback = null)
         {
-            Controller.Setup(parent, _onOpenPopup, data);
+            Controller.Setup(_rectTransform, parent, _onOpenPopup, data);
             _image.sprite = data.Art;
             _image.color = Color.white;
             _btnOpenPopup.enabled = enableButton;
@@ -72,7 +73,7 @@ namespace Views
 
         public void SetupWithColor(RectTransform parent, ArtPiece data, bool enableButton, UnityAction callback = null)
         {
-            Controller.Setup(parent, _onOpenPopup, data);
+            Controller.Setup(_rectTransform, parent, _onOpenPopup, data);
             _image.sprite = _defaultSprite;
             _image.color = data.Color;
             _btnOpenPopup.enabled = enableButton;

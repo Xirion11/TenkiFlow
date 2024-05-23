@@ -227,3 +227,4 @@ MonoBehaviour:
   _defaultSprite: {fileID: 21300000, guid: 63272e5513abcf049b098cadf9268fc3, type: 3}
   _btnOpenPopup: {fileID: 6091638513407023134}
   _onOpenPopup: {fileID: 11400000, guid: e5ae02bcf96982c41b145fb4f41fcfcb, type: 2}
+  _rectTransform: {fileID: 3105314818562056274}
