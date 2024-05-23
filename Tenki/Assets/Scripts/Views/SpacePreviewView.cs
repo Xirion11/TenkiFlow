@@ -9,7 +9,7 @@ namespace Views
 {
     public class SpacePreviewView : MonoBehaviour
     {
-        [SerializeField] private Button _spaceButton = default;
+        //[SerializeField] private Button _spaceButton = default;
         [SerializeField] private TextMeshProUGUI _title = default;
         [SerializeField] private Transform _pieceContainer = default;
         [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
@@ -21,14 +21,14 @@ namespace Views
         {
             _controller = new SpacePreviewController();
             _controller.Setup(_onSpaceSelected);
-            _spaceButton.onClick.AddListener(OnSpaceButton);
+            //_spaceButton.onClick.AddListener(OnSpaceButton);
         }
 
         public void Setup(Space space)
         {
             _title.SetText(space.Name);
 
-            _controller.CreateLayout(_pieceContainer, space, _piecePreviewPrefab);
+            _controller.CreateLayout(_pieceContainer, space, _piecePreviewPrefab, OnSpaceButton);
         }
         
         private void OnSpaceButton()

@@ -1,7 +1,9 @@
+using System;
 using Controllers;
 using Interfaces;
 using Systems;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Views
@@ -15,6 +17,7 @@ namespace Views
     
         private Transform _transform;
         private IPiecePreviewController _controller;
+        private UnityAction _callback;
     
         private Transform Transform 
         {
@@ -41,31 +44,41 @@ namespace Views
                 return _controller;
             }
         }
-
+        
         private void OnEnable()
         {
-            _btnOpenPopup.onClick.AddListener(Controller.OpenPopup);
+            if(_callback != null)
+            {
+                _btnOpenPopup.onClick.RemoveAllListeners();
+                _btnOpenPopup.onClick.AddListener(_callback);
+            }
         }
 
         private void OnDisable()
         {
-            _btnOpenPopup.onClick.RemoveListener(Controller.OpenPopup);
+            _btnOpenPopup.onClick.RemoveListener(_callback);
         }
 
-        public void SetupWithSprite(ArtPiece data, bool enableButton)
+        public void SetupWithSprite(ArtPiece data, bool enableButton, UnityAction callback = null)
         {
             Controller.Setup(_onOpenPopup, data);
             _image.sprite = data.Art;
             _image.color = Color.white;
             _btnOpenPopup.enabled = enableButton;
+            _callback = callback ?? Controller.OpenPopup;
+            _btnOpenPopup.onClick.RemoveAllListeners();
+            _btnOpenPopup.onClick.AddListener(_callback);
         }
 
-        public void SetupWithColor(ArtPiece data, bool enableButton)
+        public void SetupWithColor(ArtPiece data, bool enableButton, UnityAction callback = null)
         {
             Controller.Setup(_onOpenPopup, data);
             _image.sprite = _defaultSprite;
             _image.color = data.Color;
             _btnOpenPopup.enabled = enableButton;
+            _callback = callback ?? Controller.OpenPopup;
+            _btnOpenPopup.onClick.RemoveAllListeners();
+            _btnOpenPopup.onClick.AddListener(_callback);
         }
 
         public void SetSiblingIndex(int index)
