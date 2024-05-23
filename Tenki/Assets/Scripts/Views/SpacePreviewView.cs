@@ -3,13 +3,11 @@ using Interfaces;
 using Systems;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Views
 {
     public class SpacePreviewView : MonoBehaviour
     {
-        //[SerializeField] private Button _spaceButton = default;
         [SerializeField] private TextMeshProUGUI _title = default;
         [SerializeField] private RectTransform _pieceContainer = default;
         [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
@@ -21,7 +19,6 @@ namespace Views
         {
             _controller = new SpacePreviewController();
             _controller.Setup(_onSpaceSelected);
-            //_spaceButton.onClick.AddListener(OnSpaceButton);
         }
 
         public void Setup(Space space)
