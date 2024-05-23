@@ -9,7 +9,7 @@ namespace Interfaces
     public interface ISpacePreviewController
     {
         public void Setup(UIEvent onSpaceSelected);
-        public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab, UnityAction callback);
+        public void CreateLayout(RectTransform transform, Space space, PiecePreviewView piecePreviewPrefab, UnityAction callback);
         public void OnSpaceButton();
     }
 }

@@ -17,7 +17,7 @@ namespace Controllers
             _onSpaceSelected = onSpaceSelected;
         }
 
-        public void CreateLayout(Transform transform, Space space, PiecePreviewView piecePreviewPrefab, UnityAction callback)
+        public void CreateLayout(RectTransform transform, Space space, PiecePreviewView piecePreviewPrefab, UnityAction callback)
         {
             _space = space;
             foreach (var artPiece in space.ArtPieces)
@@ -26,11 +26,11 @@ namespace Controllers
 
                 if (artPiece.Art == null)
                 {
-                    previewView.SetupWithColor(artPiece, true, callback); //TODO: Remove enable button, will always be true
+                    previewView.SetupWithColor(transform, artPiece, true, callback); //TODO: Remove enable button, will always be true
                 }
                 else
                 {
-                    previewView.SetupWithSprite(artPiece, true, callback);
+                    previewView.SetupWithSprite(transform, artPiece, true, callback);
                 }
             }
         }

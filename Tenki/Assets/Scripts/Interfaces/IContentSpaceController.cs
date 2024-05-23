@@ -8,7 +8,7 @@ namespace Interfaces
     {
         public void Setup(PiecePreviewPool pool);
         public void ClearLayout();
-        public void CreateLayout(Transform transform, Space space);
+        public void CreateLayout(RectTransform transform, Space space);
         public void Shuffle();
     }
 }

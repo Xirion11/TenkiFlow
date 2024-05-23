@@ -59,9 +59,9 @@ namespace Views
             _btnOpenPopup.onClick.RemoveListener(_callback);
         }
 
-        public void SetupWithSprite(ArtPiece data, bool enableButton, UnityAction callback = null)
+        public void SetupWithSprite(RectTransform parent, ArtPiece data, bool enableButton, UnityAction callback = null)
         {
-            Controller.Setup(_onOpenPopup, data);
+            Controller.Setup(parent, _onOpenPopup, data);
             _image.sprite = data.Art;
             _image.color = Color.white;
             _btnOpenPopup.enabled = enableButton;
@@ -70,9 +70,9 @@ namespace Views
             _btnOpenPopup.onClick.AddListener(_callback);
         }
 
-        public void SetupWithColor(ArtPiece data, bool enableButton, UnityAction callback = null)
+        public void SetupWithColor(RectTransform parent, ArtPiece data, bool enableButton, UnityAction callback = null)
         {
-            Controller.Setup(_onOpenPopup, data);
+            Controller.Setup(parent, _onOpenPopup, data);
             _image.sprite = _defaultSprite;
             _image.color = data.Color;
             _btnOpenPopup.enabled = enableButton;
@@ -89,6 +89,11 @@ namespace Views
         public void SetAsLastSibling()
         {
             Transform.SetAsLastSibling();
+        }
+
+        public void GetRandomPositionWithinParent()
+        {
+            _transform.position = Controller.GetRandomPositionWithinParent();
         }
     }
 }

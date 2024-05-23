@@ -12,7 +12,7 @@ namespace Views
         [SerializeField] private GameObject _viewContent = default;
         [SerializeField] private Button _btnBack = default;
         [SerializeField] private TextMeshProUGUI _txtTitle = default;
-        [SerializeField] private Transform _piecesContent = default;
+        [SerializeField] private RectTransform _piecesContent = default;
         [SerializeField] private Button _btnShuffle = default;
         [SerializeField] private UIEvent _onBackToHome = default;
 

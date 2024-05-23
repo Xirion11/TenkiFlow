@@ -11,7 +11,7 @@ namespace Views
     {
         //[SerializeField] private Button _spaceButton = default;
         [SerializeField] private TextMeshProUGUI _title = default;
-        [SerializeField] private Transform _pieceContainer = default;
+        [SerializeField] private RectTransform _pieceContainer = default;
         [SerializeField] private PiecePreviewView _piecePreviewPrefab = default;
         [SerializeField] private UIEvent _onSpaceSelected = default;
     
