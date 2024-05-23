@@ -295,6 +295,7 @@ MonoBehaviour:
   _btnBack: {fileID: 1553448117149154734}
   _txtTitle: {fileID: 1621602673719197382}
   _piecesContent: {fileID: 3814961418814378596}
+  _panelContent: {fileID: 7538802462662228783}
   _btnShuffle: {fileID: 8687855621624000373}
   _onBackToHome: {fileID: 11400000, guid: 583687fc4d682f346bd85af9075005e8, type: 2}
   _previewPool: {fileID: 5808808911746909564}
@@ -339,9 +340,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2799155417169696242}
   - {fileID: 1099827967512072766}
   - {fileID: 3814961418814378596}
+  - {fileID: 2799155417169696242}
   - {fileID: 2197169613385915274}
   m_Father: {fileID: 8249951092448558748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -13,6 +13,7 @@ namespace Views
         [SerializeField] private Button _btnBack = default;
         [SerializeField] private TextMeshProUGUI _txtTitle = default;
         [SerializeField] private RectTransform _piecesContent = default;
+        [SerializeField] private RectTransform _panelContent = default;
         [SerializeField] private Button _btnShuffle = default;
         [SerializeField] private UIEvent _onBackToHome = default;
 
@@ -48,7 +49,7 @@ namespace Views
         {
             _txtTitle.SetText(space.Name);
             _controller.ClearLayout();
-            _controller.CreateLayout(_piecesContent, space);
+            _controller.CreateLayout(_panelContent, _piecesContent, space);
         }
     }
 }

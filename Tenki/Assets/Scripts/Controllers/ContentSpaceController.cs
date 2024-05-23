@@ -38,21 +38,21 @@ namespace Controllers
             _indices.Clear();
         }
 
-        public void CreateLayout(RectTransform transform, Space space)
+        public void CreateLayout(RectTransform panelContainer, RectTransform previewContainer, Space space)
         {
             foreach (var artPiece in space.ArtPieces)
             {
-                PiecePreviewView previewView = _pool.Get(transform);
+                PiecePreviewView previewView = _pool.Get(previewContainer);
                 _pooledPiecePreviews.Add(previewView);
                 previewView.SetAsLastSibling();
 
                 if (artPiece.Art == null)
                 {
-                    previewView.SetupWithColor(transform, artPiece, true);
+                    previewView.SetupWithColor(panelContainer, artPiece, true);
                 }
                 else
                 {
-                    previewView.SetupWithSprite(transform, artPiece, true);
+                    previewView.SetupWithSprite(panelContainer, artPiece, true);
                 }
                 
                 _indices.Add(_indices.Count);
@@ -61,8 +61,6 @@ namespace Controllers
 
         public void Shuffle()
         {
-            // _indices.Shuffle();
-            
             for (int i = 0; i < _pooledPiecePreviews.Count; i++)
             {
                 //_pooledPiecePreviews[i].SetSiblingIndex(_indices[i]);
